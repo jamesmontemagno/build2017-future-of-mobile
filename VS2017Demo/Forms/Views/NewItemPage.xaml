@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Forms.NewItemPage" 
+             Title="New Item">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Save" Clicked="Save_Clicked" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<StackLayout x:Name="MainLayout" Spacing="20" Padding="15">
+            <Label Text="Title Update Screen" FontSize="Medium"  />
+            
+            <Entry Text="{Binding Item.Text}" 
+                   FontSize="Small" x:Name="LabelText"/>
+            
+            <Label Text="Description" FontSize="Medium"/>
+            
+            <Editor Text="{Binding Item.Description}" 
+                    FontSize="Small" Margin="0" 
+                    x:Name="LabelDescription" />
+            
+          
+            <Button Text="Add Location" Clicked="Button_Clicked"/>
+            <Label x:Name="Location"/>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

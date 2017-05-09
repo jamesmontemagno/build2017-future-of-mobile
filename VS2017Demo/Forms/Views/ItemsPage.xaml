@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Forms.ItemsPage" 
+             x:Name="BrowseItemsPage"
+             Icon="tab_feed.png"
+             Title="Browse Items">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ItemsListView"
+                      VerticalOptions="FillAndExpand" 
+                      HasUnevenRows="true" 
+                      RefreshCommand="{Binding LoadItemsCommand}" 
+                      IsPullToRefreshEnabled="true" 
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                      CachingStrategy="RecycleElement" 
+                      ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="12" Grid.Column="1">
+                                <Label Text="{Binding Text}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16"/>
+                                <Label Text="{Binding Description}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="16"/>
+                               
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
