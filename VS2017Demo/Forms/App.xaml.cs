@@ -41,21 +41,26 @@ namespace Forms
 
 		public static void GoToMainPage()
 		{
-			Current.MainPage = new TabbedPage
-			{
-				Children = {
-					new NavigationPage(new ItemsPage())
-					{
-						Title = "Browse",
-                        Icon = "tab_feed.png"
+           
+            Current.MainPage = new TabbedPage
+            {
+
+                Children =
+                {
+                    new NavigationPage(new ItemsPage())
+                    {
+                        Title = "Browse",
+                        Icon = Device.OS == TargetPlatform.iOS ? "tab_feed.png" : null
                     },
-					new NavigationPage(new AboutPage())
-					{
-						Title = "About",
-                        Icon = "tab_about.png"
-					},
-				}
-			};
+                    new NavigationPage(new AboutPage())
+                    {
+                        Title = "About",
+                        Icon = Device.OS == TargetPlatform.iOS ? "tab_about.png" : null
+                    },
+                }
+            };
+            
+           
 		}
 	}
 }

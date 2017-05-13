@@ -8,6 +8,16 @@
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 		<StackLayout x:Name="MainLayout" Spacing="20" Padding="15">
+            <Grid BackgroundColor="#3498db">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid HorizontalOptions="Start">
+                    <Image Source="xamarin_logo.png" HeightRequest="48" Margin="20,26,12,12"/>
+                </Grid>
+                <Label Text="New" TextColor="White" FontSize="32" Margin="20,48,20,20" Grid.Row="1"/>
+            </Grid>
             <Label Text="Title Update Screen" FontSize="Medium"  />
             
             <Entry Text="{Binding Item.Text}" 
