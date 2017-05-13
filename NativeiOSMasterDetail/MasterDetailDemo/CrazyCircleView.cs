@@ -22,13 +22,13 @@ namespace MasterDetailDemo
             var touch = touches.ToArray<UITouch>()[0];
             location = touch.LocationInView(this);
            
-            //set background color
+            //TODO: set background color
             SetNeedsDisplay();
         }
 
         public override void TouchesEnded(NSSet touches, UIEvent evt)
         {
-            //Setbackground color
+            //TODO: set diferent background color
             SetNeedsDisplay();
         }
 
