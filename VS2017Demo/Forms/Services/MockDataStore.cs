@@ -23,8 +23,8 @@ namespace Forms
             items = new List<Item>();
             var _items = new List<Item>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Twitter", Description="@JamesMontemagno"},
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Blog", Description="motzcod.es"},
+				new Item { Id = Guid.NewGuid().ToString(), Text = "Twitter", Description="@JamesMontemagno"},
+				new Item { Id = Guid.NewGuid().ToString(), Text = "Blog", Description="motzcod.es"},
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Podcast: Merge Conflict", Description="mergeconflict.fm"},
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Podcast: Coffeehouse Blunders", Description="blunders.fm"},
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Xamarin", Description="xamarin.com"},

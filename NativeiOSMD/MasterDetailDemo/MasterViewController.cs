@@ -19,6 +19,10 @@ namespace MasterDetailDemo
 
 			NavigationItem.RightBarButtonItem =
 				new UIBarButtonItem(UIBarButtonSystemItem.Add, HandleAdd);
+
+            HandleAdd(null, null);
+            HandleAdd(null, null);
+            HandleAdd(null, null);
 		}
 
 		void HandleAdd (object sender, EventArgs e)
@@ -55,18 +59,18 @@ namespace MasterDetailDemo
 
 			if (cell == null)
 			{
-				cell = new UITableViewCell (UITableViewCellStyle.Default, "Color");
+                cell = new UITableViewCell (UITableViewCellStyle.Default, "Color");
 			}
 
-			cell.TextLabel.Text = colors[indexPath.Row].ToString ();
-
+            var color = colors[indexPath.Row];
+			cell.TextLabel.Text = color.ToString ();
+            cell.BackgroundColor = color;
 			return cell;
 		}
 
 		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 		{
-			base.RowSelected (tableView, indexPath);
-
+			
 			tableView.DeselectRow (indexPath, true);
 
 			ColorChanged?.Invoke (this, colors[indexPath.Row]);

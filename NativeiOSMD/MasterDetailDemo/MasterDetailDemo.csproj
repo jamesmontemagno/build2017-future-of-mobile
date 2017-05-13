@@ -106,6 +106,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MasterViewController.cs" />
     <Compile Include="DetailViewController.cs" />
+    <Compile Include="CrazyCircleView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

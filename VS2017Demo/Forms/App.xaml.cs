@@ -25,7 +25,7 @@ namespace Forms
 
 		public static void SetMainPage()
 		{
-			if (!UseMockDataStore && !Settings.IsLoggedIn)
+			if (!UseMockDataStore)
 			{
 				Current.MainPage = new NavigationPage(new LoginPage())
 				{

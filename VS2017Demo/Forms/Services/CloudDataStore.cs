@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json;
-using Plugin.Connectivity;
 
 namespace Forms
 {
@@ -25,7 +24,7 @@ namespace Forms
 
 		public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
 		{
-			if (forceRefresh && CrossConnectivity.Current.IsConnected)
+			if (forceRefresh)
 			{
 				var json = await client.GetStringAsync($"api/item");
 				items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Item>>(json));
@@ -36,7 +35,7 @@ namespace Forms
 
 		public async Task<Item> GetItemAsync(string id)
 		{
-			if (id != null && CrossConnectivity.Current.IsConnected)
+			if (id != null)
 			{
 				var json = await client.GetStringAsync($"api/item/{id}");
 				items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Item>>(json));
@@ -47,7 +46,7 @@ namespace Forms
 
 		public async Task<bool> AddItemAsync(Item item)
 		{
-			if (item == null || !CrossConnectivity.Current.IsConnected)
+			if (item == null)
 				return false;
 
 			var serializedItem = JsonConvert.SerializeObject(item);
@@ -59,7 +58,7 @@ namespace Forms
 
 		public async Task<bool> UpdateItemAsync(Item item)
 		{
-			if (item == null || item.Id == null || !CrossConnectivity.Current.IsConnected)
+			if (item == null || item.Id == null)
 				return false;
 
 			var serializedItem = JsonConvert.SerializeObject(item);
@@ -73,7 +72,7 @@ namespace Forms
 
 		public async Task<bool> DeleteItemAsync(string id)
 		{
-			if (string.IsNullOrEmpty(id) && !CrossConnectivity.Current.IsConnected)
+			if (string.IsNullOrEmpty(id))
 				return false;
 
 			var response = await client.DeleteAsync($"api/item/{id}");

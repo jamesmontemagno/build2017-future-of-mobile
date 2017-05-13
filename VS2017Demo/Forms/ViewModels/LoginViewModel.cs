@@ -38,7 +38,6 @@ namespace Forms
 				Message = string.Empty;
 				IsBusy = false;
 
-				if (Settings.IsLoggedIn)
 					App.GoToMainPage();
 			}
 		}
